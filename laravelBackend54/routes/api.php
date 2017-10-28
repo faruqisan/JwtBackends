@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/register','JwtAuthController@register');
 Route::post('/login','JwtAuthController@login');
-Route::post('/encode','JwtAuthController@encode');
+Route::post('/decode','JwtAuthController@decode');

@@ -54,7 +54,7 @@ class JwtAuthController extends Controller
     return ['Invalid Credentials'];
   }
 
-  public function encode(Guard $auth,EncodeRequest $request){
+  public function decode(Guard $auth,EncodeRequest $request){
     $token = $request->token;
     $raw = $auth->manager()->parseToken($token);
     if($raw){
