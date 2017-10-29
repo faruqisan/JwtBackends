@@ -13,4 +13,6 @@ app.post('/decode/:token', function(req, res){
    res.send(decoded);
 });
 
-app.listen(3000);
+app.listen(3000,function () {
+  console.log('app listening on port 3000!')
+});
