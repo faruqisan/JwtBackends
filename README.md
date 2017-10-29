@@ -48,6 +48,10 @@ php artisan key:generate
 ``` 
 in terminal to set the application `APP_KEY`.
 
+```env
+JWT_SECRET=base64:lIeV1GTr1gUJVLKmfkJ2huAgP8BxEnAZKwXUI6c3d4s=
+```
+
 8. Run
 ```bash
 php artisan vendor:publish --provider="Codecasts\Auth\JWT\ServiceProvider"
