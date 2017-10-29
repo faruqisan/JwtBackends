@@ -18,7 +18,7 @@ This project simulate how JWT Server run in Laravel and NodeJS + Express in a si
 - Postman for Test the API
 
 
-## Instalations
+## Installations
 
 - Clone this repository to your machine
 
