@@ -74,13 +74,25 @@ cd expressBackend
 npm install
 ```
 
-4. open (`index.js`) and change the value of variable `var secret` from secret key generated on laravel application but exclude the `base64:` 
+4. Setup the secret key
+
+open (`index.js`) and change the value of variable `var secret` from secret key generated on laravel application but exclude the `base64:` 
 
 Example : 
 
 Secret from laravel (`.env`) is `base64:FClidjjWPImBqjptbZWc4XCtq9F0P7PUBnBBLTpf6ew=`
 
 Copy to (`index.js`) only `FClidjjWPImBqjptbZWc4XCtq9F0P7PUBnBBLTpf6ew=`
+
+```javascript
+
+var express = require('express');
+var app = express();
+var jwt = require('jwt-simple');
+//change first parameter of Buffer.from to match laravel server jwt secret exclude the 'base64:'
+var secret = Buffer.from('FClidjjWPImBqjptbZWc4XCtq9F0P7PUBnBBLTpf6ew=', 'base64')
+
+```
 
 
 5. open terminal and run the server by type `node index.js`
