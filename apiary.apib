@@ -1,80 +1,131 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://localhost:8000/
 
-# JwtAPI
+# Jwt API
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Jwt API is a task given by eFishery, to build 2 server from PHP+Laravel and NodeJs+Express
+#Laravel Server
 
-## Questions Collection [/questions]
+## Register User [/api/register]
 
-### List All Questions [GET]
+### Register User[POST]
+
+Validation Rule for this endpoint are :
+
+name : required|string|max:255
+username : required|string|min:6|max:20|unique:users
+password : required|string|min:6
+role : required|string
+
++ Request (application/form-data)
+
+        {
+            "name": "name",
+            "username": "username",
+            "password": "password",
+            "role": "role",
+        }
 
 + Response 200 (application/json)
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
+        {
+            "message": "Register Berhasil"
+        }
+        
++ Response 400 (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "message": "Register Gagal"
         }
 
-+ Response 201 (application/json)
+## Login User [/api/login]
 
-    + Headers
+### Login User [POST]
 
-            Location: /questions/2
+Validation Rule for this endpoint are :
 
-    + Body
+username : required|string|min:6|max:20
+password : required|string|min:6
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
++ Request (application/form-data)
+
+        {
+            "username": "username",
+            "password": "password",
+        }
+
++ Response 200 (application/json)
+
+        {
+            "response": "success",
+            "result": {
+                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImZMUGg1WTZSNW1pVVU3cEEifQ.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMCIsInN1YiI6IjIiLCJqdGkiOiJmTFBoNVk2UjVtaVVVN3BBIiwiaWF0IjoxNTA5MjU2MTg1LCJuYmYiOjE1MDkyNTYxODUsImV4cCI6MTUwOTI1OTc4NSwicmxpIjoxNTA5NjkxNzg1LCJuYW1lIjoiaWtoc2FuIiwidXNlcm5hbWUiOiJpa2hzYW4yIiwicm9sZSI6ImlraHNhbiIsInRpbWVzdGFtcCI6IjIwMTctMTAtMjkgMDU6NDk6NDUifQ.9A8Od-_lA3a2H2OLM7aspsPWqZwLe6RKpPy9s2Awdcw"
             }
+        }
+
++ Response 400 (application/json)
+
+        {
+            "message": "Invalid Credential"
+        }
+
+## Decode Token [/api/decode]
+
+### Decode Token [POST]
+
+Validation Rule for this endpoint are :
+
+token : required
+
++ Request (application/form-data)
+
+        {
+            "token": "token",
+        }
+
++ Response 200 (application/json)
+
+        {
+            "iss": "http://localhost:8000",
+            "sub": "2",
+            "jti": "z4iSXdvAmrboEUBz",
+            "iat": 1509208072,
+            "nbf": 1509208072,
+            "exp": 1509211672,
+            "rli": 1509643672,
+            "name": "ikhsan",
+            "username": "ikhsan2",
+            "role": "ikhsan",
+            "timestamp": "2017-10-28 16:27:52"
+        }
+        
++ Response 400 (application/json)
+
+        {
+            "message": "Invalid Token"
+        }
+
+## NodeJS Backend PORT:3000 [/{token}]
+
+Please note this API use different host from Laravel backend usually laravel dev server run on `localhost:8000` and express run on `localhost:3000`
+
+### Decode Token [POST]
+
++ Parameters
+    + token (string) - token
+
++ Response 200 (application/json)
+
+        {
+            "iss": "http://localhost:8000",
+            "sub": "2",
+            "jti": "z4iSXdvAmrboEUBz",
+            "iat": 1509208072,
+            "nbf": 1509208072,
+            "exp": 1509211672,
+            "rli": 1509643672,
+            "name": "ikhsan",
+            "username": "ikhsan2",
+            "role": "ikhsan",
+            "timestamp": "2017-10-28 16:27:52"
+        }
