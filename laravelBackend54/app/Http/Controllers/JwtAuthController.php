@@ -48,10 +48,12 @@ class JwtAuthController extends Controller
           'result' => [
               'token' => $token,
           ],
-      ]);
+      ],200);
     }
 
-    return ['Invalid Credentials'];
+    return response()->json([
+        'message'=>'Invalid Credentials',
+      ],400);
   }
 
   public function decode(Guard $auth,EncodeRequest $request){
@@ -61,7 +63,9 @@ class JwtAuthController extends Controller
       $claims = $raw->getClaims();
       return $claims;
     }
-    return ['Invalid Token'];
+    return response()->json([
+        'message'=>'Invalid Token',
+      ],400);
   }
     //
 }
