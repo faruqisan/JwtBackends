@@ -76,5 +76,5 @@ npm install
 
 4. open (`index.js`) and change the value of variable `var secret` from secret key generated on laravel application but exclude the `base64:` 
 
-5. run the server by type `node index.js`
+5. open terminal and run the server by type `node index.js`
 
