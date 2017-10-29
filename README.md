@@ -76,6 +76,13 @@ npm install
 
 4. open (`index.js`) and change the value of variable `var secret` from secret key generated on laravel application but exclude the `base64:` 
 
+Example : 
+
+Secret from laravel (`.env`) is `base64:FClidjjWPImBqjptbZWc4XCtq9F0P7PUBnBBLTpf6ew=`
+
+Copy to (`index.js`) only `FClidjjWPImBqjptbZWc4XCtq9F0P7PUBnBBLTpf6ew=`
+
+
 5. open terminal and run the server by type `node index.js`
 
 ## Testing
