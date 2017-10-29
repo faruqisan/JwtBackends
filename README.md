@@ -58,7 +58,7 @@ in terminal to publish Codecast Laravel JWT
 
 10. Run Migration `php artisan migrate`
 
-11. Run development server `php artisan serve` and `php artisan serve --port=0000` for custom port
+11. Run development server `php artisan serve` or `php artisan serve --port=PORT` for custom port
 
 ### NodeJS + Express Server
 
