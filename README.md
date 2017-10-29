@@ -48,9 +48,6 @@ php artisan key:generate
 ``` 
 in terminal to set the application `APP_KEY`.
 
-```env
-JWT_SECRET=base64:lIeV1GTr1gUJVLKmfkJ2huAgP8BxEnAZKwXUI6c3d4s=
-```
 
 8. Run
 ```bash
@@ -58,7 +55,11 @@ php artisan vendor:publish --provider="Codecasts\Auth\JWT\ServiceProvider"
 ``` 
 in terminal to publish Codecast Laravel JWT
 
-9. Generate secret key by `php artisan jwt:generate` and then copy generated secret from terminal into (`.env`) file
+9. Generate secret key by `php artisan jwt:generate` and then copy generated secret from terminal into (`.env`) file , usually put on last line
+
+```env
+JWT_SECRET=GENERATED KEY FROM TERMINAL
+```
 
 10. Run Migration `php artisan migrate`
 
