@@ -6,7 +6,7 @@ This project simulate how JWT Server run in Laravel and NodeJS + Express in a si
 
 ## API Documentation
 
-[http://http://docs.jwtapi3.apiary.io/#](http://http://docs.jwtapi3.apiary.io/#)
+[http://docs.jwtapi3.apiary.io/#](http://http://docs.jwtapi3.apiary.io/#)
 
 ## Requirements
 
