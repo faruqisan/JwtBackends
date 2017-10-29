@@ -78,3 +78,8 @@ npm install
 
 5. open terminal and run the server by type `node index.js`
 
+## Testing
+
+Currently unit testing just available for LaravelServer
+
+to run test type `vendor/bin/phpunit` on (`laravelBackend54`) folder
