@@ -38,25 +38,27 @@ composer install
 
 4. Copy  (`.env.example`) file into (`.env`) (Create a new file named .env).
 
-5. Open (`.env`) file and change the database configs like `DB_DATABASE` , `DB_USERNAME` , and `DB_PASSWORD` to match your system database environment.
+5. Create a database on your MySQL Server
 
-6.  Run 
+6. Open (`.env`) file and change the database configs like `DB_DATABASE` , `DB_USERNAME` , and `DB_PASSWORD` to match your system database environment.
+
+7.  Run 
 ```bash
 php artisan key:generate
 ``` 
 in terminal to set the application `APP_KEY`.
 
-7. Run
+8. Run
 ```bash
 php artisan vendor:publish --provider="Codecasts\Auth\JWT\ServiceProvider"
 ``` 
 in terminal to publish Codecast Laravel JWT
 
-8. Generate secret key by `php artisan jwt:generate` and then copy generated secret from terminal into (`.env`) file
+9. Generate secret key by `php artisan jwt:generate` and then copy generated secret from terminal into (`.env`) file
 
-9. Run Migration `php artisan migrate`
+10. Run Migration `php artisan migrate`
 
-10. Run development server `php artisan serve` and `php artisan serve --port=0000` for custom port
+11. Run development server `php artisan serve` and `php artisan serve --port=0000` for custom port
 
 ### NodeJS + Express Server
 
